@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.io.File;
 import java.lang.annotation.Retention;
@@ -143,10 +144,7 @@ public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapte
                 Glide.with(context)
                         .load(uri)
                         .thumbnail(0.1f)
-                        .dontAnimate()
-                        .centerCrop()
-                        .placeholder(R.drawable.ic_gallery)
-                        .error(R.drawable.img_error)
+                        .apply(RequestOptions.noAnimation().centerCrop().placeholder(R.drawable.ic_gallery).error(R.drawable.img_error))
                         .into(holder.iv_thumbnail);
             } else {
                 builder.imageProvider.onProvideImage(holder.iv_thumbnail, uri);
@@ -159,7 +157,7 @@ public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryAdapte
         }
 
 
-        if (holder.root instanceof FrameLayout) {
+        if (holder.root != null) {
 
             Drawable foregroundDrawable;
 

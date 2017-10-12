@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 
-ext {
+/*ext {
     bintrayRepo = 'maven'
     bintrayName = 'tedbottompicker'
 
@@ -23,17 +23,17 @@ ext {
     licenseName = 'The Apache Software License, Version 2.0'
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
-}
+}*/
 
 android {
 
-    compileSdkVersion 25
-    buildToolsVersion '25.0.0'
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 24
+        minSdkVersion 19
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
     }
@@ -54,13 +54,18 @@ configurations {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.android.support:design:25.1.0'
-    compile 'com.android.support:support-annotations:25.1.0'
-    javadocDeps 'com.android.support:support-annotations:25.1.0'
-    compile 'com.github.bumptech.glide:glide:3.6.1'
+    compile "com.android.support:appcompat-v7:$rootProject.ext.android_support_version"
+    compile "com.android.support:design:$rootProject.ext.android_support_version"
+    compile "com.android.support:support-annotations:$rootProject.ext.android_support_version"
+    javadocDeps "com.android.support:support-annotations:$rootProject.ext.android_support_version"
+    compile 'com.github.bumptech.glide:glide:4.2.0'
+}
+
+repositories {
+    jcenter()
+    maven { url 'https://maven.google.com' }
 }
 
 // Place it at the end of the file
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
