@@ -1,6 +1,7 @@
 package gun0912.tedbottompicker;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
@@ -148,6 +149,7 @@ public class TedBottomPicker extends BottomSheetDialogFragment {
 
     }
 
+    @SuppressWarnings("RestrictedApi")
     @Override
     public void setupDialog(Dialog dialog, int style) {
         super.setupDialog(dialog, style);

@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="tedbottompicker_title">이미지를 골라주세요.</string>
+    <string name="no_image">이미지 없음</string>
+    <string name="done">완료</string>
+
+
+    <string name="select_max_count">이미 %1$d개의 이미지를 선택하셨습니다.</string>
+    <string name="select_min_count">%1$d개의 이미지를 선택해야 합니다.</string>
+
+</resources>
