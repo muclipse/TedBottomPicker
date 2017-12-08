@@ -13,6 +13,9 @@ allprojects {
     repositories {
         jcenter()
     }
+
+    group = GROUP
+    version = VERSION_NAME
 }
 
 task clean(type: Delete) {
